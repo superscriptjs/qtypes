@@ -13,8 +13,10 @@ Using Trec 10 Labled questions from : http://cogcomp.cs.illinois.edu/Data/QA/QC/
 
 ## API 
 
-classify("How many steps from here to Alaska?"); // NUM:count
-assert("file", callback)
+    classify("How many steps from here to Alaska?"); 
+    // NUM:count
+
+    assert("file", callback)
 
 See the test file for an example.
 
