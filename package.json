@@ -1,5 +1,5 @@
 {
-  "name": "questionType",
+  "name": "qtypes",
   "version": "0.0.1",
   "description": "Classify a sentense to a question type",
   "main": "index.js",
