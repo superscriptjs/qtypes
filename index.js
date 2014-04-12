@@ -1,2 +1,1 @@
-
-modeule.exports = require("./lib/ruleClassify.js");
+module.exports = require("./lib/ruleClassify.js");
