@@ -144,7 +144,7 @@ LOC:city What city boasts Penn 's Landing , on the banks of the Delaware river ?
 ENTY:cremat What Broadway musical was inspired by Cervantes 's Don Quixote ?
 DESC:desc What is the origin of the word , JJ .
 NUM:count How many hostages were killed in the Entebbe raid ?
-DESC:manner How you can raise your IQ ?
+DESC:manner How can you raise your IQ ?
 ABBR:exp What does INRI stand for when used on Jesus ' cross ?
 HUM:gr Who produces Spumante ?
 HUM:ind Who earns their money the hard way ?
@@ -345,7 +345,7 @@ HUM:ind Who does the advertizing for Frito-Lay ?
 HUM:gr Who is the leading competitor of Trans Union Company ?
 ENTY:product What product did Robert Conrad dare people to knock off his shoulder ?
 HUM:ind Who invented the radio ?
-NUM:count What 's the American dollar equivalent for 8 pounds in the U.K. ?
+NUM:money What 's the American dollar equivalent for 8 pounds in the U.K. ?
 ENTY:techmeth What are the different approaches of systems analysis ?
 DESC:manner How do doctors diagnose bone cancer ?
 HUM:ind Who is the man behind the pig-the man who pulls the strings and speaks for Miss Piggy ?
