@@ -9,12 +9,14 @@ new ra(function(q) {
 	// http://aclweb.org/anthology/Y/Y00/Y00-1037.pdf
 	var r2 = q.questionType("Who is slower, Mary or John?");
 	
-	// Tag Questions
+	// Tag Questions	
 	// var r3 = q.questionType("She does a beautiful job, does not she?");
 	var r3 = q.questionType("Peter plays football, does not he?");
 
 	// YN Questions
 	var r4 = q.questionType("Do you want dinner?");
+
+	console.log(q.classify("If John is taller than Mary, who is the taller?"));
 
 	// q.assertAlt("./data/altQuestions.txt", function(results) {
 	// 	console.log(results);
@@ -23,8 +25,8 @@ new ra(function(q) {
 	// q.assertTag("./data/tagQuestions.txt", function(results) {
 	// 	console.log(results);
 	// });
-
-	// q.assert("./data/500q.txt", function(results) {
-	// 	console.log(results);
-	// });
+	
+	q.assert("./data/500q.txt", function(results) {
+		console.log(results);
+	});
 });

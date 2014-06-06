@@ -1389,7 +1389,6 @@ DESC:reason What caused Shea & Gould to close their L.A. office ?
 ENTY:animal What 's the only mammal that can 't jump ?
 LOC:state What U.S. state has the most blondes ?
 ENTY:event What war saw battles at Parrot 's Beak and Black Virgin ?
-NUM:count What was the U.S. highway death toll in 1969 ?
 DESC:def What does the name Kelly mean ?
 DESC:def What is a phalanx ?
 HUM:ind What mustachioed comedian portrayed Frankie in North to Alaska ?
@@ -4522,7 +4521,6 @@ NUM:money How much did Mercury spend on advertising in 1993 ?
 ENTY:veh What kind of rocket launched the Surveyor spacecraft ?
 LOC:country What country contains the westernmost point in South America ?
 ENTY:other What did Abolitionists try to end ?
-NUM:count What 's the American dollar equivalent for 8 pounds in the U.K. ?
 DESC:reason Why should cigarette smoking be banned ?
 NUM:date What year did Charles Dicken die ?
 ENTY:cremat What D.H. Lawrence novel was originally titled Tenderness ?
