@@ -16,8 +16,8 @@ new ra(function(q) {
 	// YN Questions
 	var r4 = q.questionType("Do you want dinner?");
 
-	console.log(q.classify("If John is taller than Mary, who is the taller?"));
-
+	// console.log(q.classify("If John is taller than Mary, who is the taller?"));
+	
 	// q.assertAlt("./data/altQuestions.txt", function(results) {
 	// 	console.log(results);
 	// });
@@ -26,7 +26,8 @@ new ra(function(q) {
 	// 	console.log(results);
 	// });
 	
-	q.assert("./data/500q.txt", function(results) {
+	q.assert("./data/5000q.txt", function(results) {
 		console.log(results);
 	});
+
 });
