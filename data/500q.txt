@@ -497,3 +497,4 @@ DESC:def What is a firewall ?
 HUM:ind What spy novelist served as Moscow correspondent for Reuter and The Times of London ?
 HUM:gr Which oil company almost picked a word that meant `` stalled car '' in Japanese as its new international name ?
 NUM:money How much is a diamond ring?
+HUM:ind what is my name?
