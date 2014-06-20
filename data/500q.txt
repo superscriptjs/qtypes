@@ -1,3 +1,4 @@
+ENTY:sport What game does Bob like to play?
 DESC:manner How did serfdom develop in and then leave Russia ?
 ENTY:cremat What films featured the character Popeye Doyle ?
 DESC:manner How can I find a list of celebrities ' real names ?
