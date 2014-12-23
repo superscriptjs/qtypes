@@ -20,7 +20,9 @@ new ra(function(q) {
 	
 	// // Alternative question or Choice Questions
 	// // http://aclweb.org/anthology/Y/Y00/Y00-1037.pdf
-	// var r2 = q.questionType("Who is slower, Mary or John?");
+	var r2 = q.classify("What comes next in the sequence?");
+	console.log(r2);
+
 	
 	// // Tag Questions	
 	// // var r3 = q.questionType("She does a beautiful job, does not she?");
@@ -37,8 +39,9 @@ new ra(function(q) {
 	// 	console.log(results);
 	// });
 	
-	q.assert("./data/500q.txt", function(results) {
-		console.log(results);
-	});
+	// q.assert("./data/500q.txt", function(results) {
+	// 	console.log(results);
+	// });
+	
 
 });
