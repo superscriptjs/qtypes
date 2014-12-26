@@ -20,7 +20,7 @@ new ra(function(q) {
 	
 	// // Alternative question or Choice Questions
 	// // http://aclweb.org/anthology/Y/Y00/Y00-1037.pdf
-	var r2 = q.classify("What comes next in the sequence?");
+	var r2 = q.classify("How much is a loaf of bread?");
 	console.log(r2);
 
 	
