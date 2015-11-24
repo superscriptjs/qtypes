@@ -20,8 +20,11 @@ new ra(function(q) {
 	
 	// // Alternative question or Choice Questions
 	// // http://aclweb.org/anthology/Y/Y00/Y00-1037.pdf
-	var r2 = q.classify("How much is a loaf of bread?");
-	console.log(r2);
+	// var r2 = q.classify("How much is a loaf of bread?");
+	// console.log(r2);
+
+	// var s = "so if I understand it correctly he start typing `@an` which bring the autocomplete menu for user names. he taps on the user he's looking for, the name autocompletes in the input field but cursor hasn't moved past that name (no space added after)";
+	// console.log(q.classify(s));
 
 	
 	// // Tag Questions	
