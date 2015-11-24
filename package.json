@@ -1,10 +1,11 @@
 {
   "name": "qtypes",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "Classify a sentense to a question type",
   "main": "index.js",
+  "repository": "https://github.com/silentrob/qtypes",
   "dependencies": {
-    "pos": "~0.1.5",
+    "pos": "https://github.com/silentrob/pos-js.git",
     "underscore": "~1.6.0",
     "node-normalizer": "0.0.6"
   },

@@ -23,8 +23,9 @@ new ra(function(q) {
 	// var r2 = q.classify("How much is a loaf of bread?");
 	// console.log(r2);
 
-	// var s = "so if I understand it correctly he start typing `@an` which bring the autocomplete menu for user names. he taps on the user he's looking for, the name autocompletes in the input field but cursor hasn't moved past that name (no space added after)";
-	// console.log(q.classify(s));
+	// var s = "johnnyrodgers: __proto__ under last_time_divider is returning \"Invalid Date\"";
+	var s = "testing constructor __proto__";
+	console.log(q.classify(s));
 
 	
 	// // Tag Questions	
