@@ -1,6 +1,6 @@
 {
   "name": "qtypes",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Classify a sentense to a question type",
   "main": "index.js",
   "repository": "https://github.com/silentrob/qtypes",
