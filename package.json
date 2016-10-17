@@ -1,17 +1,24 @@
 {
   "name": "qtypes",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Classify a sentense to a question type",
   "main": "index.js",
   "repository": "https://github.com/silentrob/qtypes",
   "dependencies": {
-    "node-normalizer": "0.0.6",
-    "parts-of-speech": "^0.3.0",
-    "underscore": "~1.6.0"
+    "lodash": "^4.16.4",
+    "parts-of-speech": "^0.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0",
+    "mocha": "^3.1.0",
+    "node-normalizer": "0.0.6",
+    "should": "^11.1.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src --presets babel-preset-es2015 --out-dir lib",
+    "test": "mocha --compilers js:babel-register test/basic.js -R spec -t 10000",
+    "prepublish": "npm run build"
   },
   "author": "Rob Ellis",
   "license": "MIT"

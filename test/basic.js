@@ -1,51 +1,118 @@
+import norm from 'node-normalizer';
+import should from 'should';
+import readline from 'readline';
+import fs from 'fs';
+
+import ruleClassifier from '../src/ruleClassify';
+
+const createReadlineStream = function createReadlineStream(fileName) {
+  const rd = readline.createInterface({
+    input: fs.createReadStream(fileName),
+    output: process.stdout,
+    terminal: false,
+  });
+
+  return rd;
+};
+
+const testTagQuestions = function testTagQuestions(fileName, done) {
+  const rd = createReadlineStream(fileName);
+  const failedTests = [];
+
+  rd.on('line', (line) => {
+    const cleanedSentence = ruleClassifier.clean(norm.clean(line));
+    const result = ruleClassifier.questionType(cleanedSentence);
+
+    if (result !== 'TG') {
+      console.log(`Expected 'TG', got '${result}' for sentence '${cleanedSentence}'`);
+      failedTests.push({ cleanedSentence, result });
+    }
+  });
+
+  rd.on('close', () => {
+    failedTests.should.be.empty();
+    done();
+  });
+};
+
+const testAltQuestions = function testAltQuestions(fileName, done) {
+  const rd = createReadlineStream(fileName);
+  const failedTests = [];
+
+  rd.on('line', (line) => {
+    const cleanedSentence = ruleClassifier.clean(norm.clean(line));
+    const result = ruleClassifier.questionType(cleanedSentence);
+
+    if (result !== 'CH') {
+      console.log(`Expected 'CH', got '${result}' for sentence '${cleanedSentence}'`);
+      failedTests.push({ cleanedSentence, result });
+    }
+  });
+
+  rd.on('close', () => {
+    failedTests.should.be.empty();
+    done();
+  });
+};
+
+const testQuestions = function testQuestions(fileName, done) {
+  const rd = createReadlineStream(fileName);
+  const failedTests = [];
+  let lineCount = 0;
+
+  rd.on('line', (line) => {
+    lineCount += 1;
+
+    const match = line.match(/([A-Z]+):([a-z]+) (.+)/);
+    const cat = match[1];
+    const subcat = match[2];
+    const sentence = match[3];
+
+    // Why does this fail more tests when norm.clean() is used as well?
+    const cleanedSentence = ruleClassifier.clean(sentence);
+    const result = ruleClassifier.classify(cleanedSentence);
+
+    if (result !== (`${cat}:${subcat}`)) {
+      console.log(`Expected ${cat}:${subcat}, got ${result} for sentence '${cleanedSentence}'`);
+      failedTests.push({ cleanedSentence, result });
+    }
+  });
+
+  rd.on('close', () => {
+    if (failedTests.length > 0) {
+      console.log(`Failed ${failedTests.length} out of ${lineCount} tests.`);
+    }
+    failedTests.should.be.empty();
+    done();
+  });
+};
+
+describe('qtypes', () => {
+  describe('question classification', () => {
+    it('should correctly classify tag questions', (done) => {
+      testTagQuestions('./data/tagQuestions.txt', done);
+    });
+    it('should correctly classify alt questions', (done) => {
+      testAltQuestions('./data/altQuestions.txt', done);
+    });
+    it('should correctly classify random questions', (done) => {
+      testQuestions('./data/500q.txt', done);
+    });
+  });
+});
+
+// // Alternative question or Choice Questions
+// // http://aclweb.org/anthology/Y/Y00/Y00-1037.pdf
+
 // ** Can you give me an example of a living animal?
 // ** Can you tell me the name of a famous actor?
 // ** CAN YOU TELL JOKES
 // ** Is the capital of Italy Milan?
-// ** Name something you would find on a beach. 
+// ** Name something you would find on a beach.
 // ** Name something you would find at the North Pole.
-// ** CAN I HAVE A PICTURE OF YOU 
+// ** CAN I HAVE A PICTURE OF YOU
 // ** Can you name two of Earth's oceans?
 // ** Milk comes from what animal?
 // ** Are you going on vacation this year?
 // ** Will you teach me something?
 // ** May I tell you a joke?
-
-var ra = require("../lib/ruleClassify.js");
-
-new ra(function(q) {
-
-	// // Question Word Questions
-	// var r1 = q.questionType("How many steps from here to Alaska?");
-	
-	// // Alternative question or Choice Questions
-	// // http://aclweb.org/anthology/Y/Y00/Y00-1037.pdf
-	// var r2 = q.classify("How much is a loaf of bread?");
-	// console.log(r2);
-
-	// var s = "johnnyrodgers: __proto__ under last_time_divider is returning \"Invalid Date\"";
-	var s = "testing constructor __proto__";
-	console.log(q.classify(s));
-
-	
-	// // Tag Questions	
-	// // var r3 = q.questionType("She does a beautiful job, does not she?");
-	// var r3 = q.questionType("Peter plays football, does not he?");
-
-	// // YN Questions
-	// var r4 = q.questionType("Do you want dinner?");
-	
-	// q.assertAlt("./data/altQuestions.txt", function(results) {
-	// 	console.log(results);
-	// });
-
-	// q.assertTag("./data/tagQuestions.txt", function(results) {
-	// 	console.log(results);
-	// });
-	
-	// q.assert("./data/500q.txt", function(results) {
-	// 	console.log(results);
-	// });
-	
-
-});
