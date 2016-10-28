@@ -36,13 +36,11 @@ const readLists = function readLists() {
   const data = {};
   const dir = path.join(__dirname, '../data/list/');
   const fileNames = fs.readdirSync(dir);
-  fileNames.map((fileName) => {
+  fileNames.forEach((fileName) => {
     const contents = fs.readFileSync(dir + fileName, 'utf-8');
     const lowerFileName = fileName.toLowerCase();
     data[lowerFileName] = contents.split('\n');
-    data[lowerFileName].forEach((line) => {
-      return line.toLowerCase();
-    });
+    data[lowerFileName].forEach(line => line.toLowerCase());
   });
   return data;
 };
@@ -117,15 +115,12 @@ class ListSet {
     return false;
   }
 
-  first() {
-    const args = Array.prototype.slice.call(arguments);
-    if (args.length === 0) {
+  first(listName) {
+    if (!listName) {
       // Return true / false if we have a listSet[0]
       return !!(this.listSet[0]);
-    } else {
-      // Assuming 1 arg
-      return this.inList(args[0], 0);
     }
+    return this.inList(listName, 0);
   }
 }
 

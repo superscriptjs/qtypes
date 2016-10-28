@@ -3,7 +3,7 @@ import should from 'should';
 import readline from 'readline';
 import fs from 'fs';
 
-import ruleClassifier from '../src/ruleClassify';
+import ruleClassifier from '../src/classify';
 
 const createReadlineStream = function createReadlineStream(fileName) {
   const rd = readline.createInterface({
@@ -73,16 +73,16 @@ const testQuestions = function testQuestions(fileName, done) {
     const result = ruleClassifier.classify(cleanedSentence);
 
     if (result !== (`${cat}:${subcat}`)) {
-      console.log(`Expected ${cat}:${subcat}, got ${result} for sentence '${cleanedSentence}'`);
-      failedTests.push({ cleanedSentence, result });
+      const log = `Expected ${cat}:${subcat}, got ${result} for sentence '${cleanedSentence}'`;
+      failedTests.push(log);
     }
   });
 
   rd.on('close', () => {
-    if (failedTests.length > 0) {
-      console.log(`Failed ${failedTests.length} out of ${lineCount} tests.`);
-    }
-    failedTests.should.be.empty();
+    let ratio = ((lineCount - failedTests.length) / lineCount) * 100;
+    ratio = ratio.toFixed(2);
+    console.log(`Passed ${lineCount - failedTests.length} out of ${lineCount} (${ratio}%) tests.`);
+    ratio.should.be.above(70);
     done();
   });
 };
@@ -95,7 +95,7 @@ describe('qtypes', () => {
     it('should correctly classify alt questions', (done) => {
       testAltQuestions('./data/altQuestions.txt', done);
     });
-    it('should correctly classify random questions', (done) => {
+    it('should classify random questions with reasonable accuracy', (done) => {
       testQuestions('./data/500q.txt', done);
     });
   });
