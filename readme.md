@@ -7,6 +7,10 @@ http://cogcomp.cs.illinois.edu/Data/QA/QC/definition.html
 
 Using Trec 10 Labeled questions from: http://cogcomp.cs.illinois.edu/Data/QA/QC/
 
+Results in sample questions are roughly 80+% on course features and 75% on finer sub categories
+
+    { coarse: 80.19603920784157, fine: 71.37427485497099 }
+
 ## Usage
 
     npm install qtypes
@@ -26,6 +30,7 @@ console.log(class);
 * `questionType(question)`
 
 Returns a coarse question type:
+
 	- CH: Choice or Alternate Question
   - WH: QWord Question
   - YN: Yes/No Question
@@ -48,7 +53,3 @@ console.log(question);
 ```
 
 See the test file for further examples.
-
-Results in sample questions are roughly 80+% on course features and 75% on finer sub categories
-
-    { coarse: 80.19603920784157, fine: 71.37427485497099 }
