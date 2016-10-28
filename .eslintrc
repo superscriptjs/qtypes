@@ -1,0 +1,7 @@
+---
+extends:
+  airbnb
+
+rules:
+  no-plusplus: [2, { allowForLoopAfterthoughts: true }]
+  handle-callback-err: [2, "^(err|error)$" ]

@@ -1,0 +1,8 @@
+.DS_Store
+node_modules
+src/*
+test/*
+readme.md
+.babelrc
+.eslintrc
+.travis.yml
